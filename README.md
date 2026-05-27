@@ -69,6 +69,8 @@ claude mcp add --scope user --transport http notion https://mcp.notion.com/mcp
 
 Start `claude`, type `/mcp`, choose **Notion → Authenticate**, and log in via the browser. Now ask Claude "what's in my Notion?" to confirm.
 
+**Want Calendar, GitHub, or Vercel connected too?** Same pattern — find each in Claude's directory at **https://claude.ai/directory**. Or just paste this to Claude and let it walk you through: *"Help me connect Google Calendar, GitHub, and Vercel to Claude Code. For each, find the official connector in the Claude directory, give me the exact `claude mcp add` command, and walk me through authenticating it with `/mcp`. One at a time."*
+
 ---
 
 ## Step 5 — Your Telegram AI assistant (the fun part)
