@@ -40,22 +40,22 @@ echo "   → Message @BotFather on Telegram"
 echo "   → Send /newbot and follow the prompts"
 echo "   → Copy the token it gives you (looks like 1234567890:AAG...)"
 echo ""
-read -rp "Paste your Telegram bot token: " BOT_TOKEN
+read -rp "Paste your Telegram bot token: " BOT_TOKEN < /dev/tty
 echo ""
 
 echo "2. Your Telegram USER ID"
 echo "   → Message @userinfobot on Telegram"
 echo "   → It will reply with 'Your ID: XXXXXXXXX'"
 echo ""
-read -rp "Paste your Telegram user ID: " USER_ID
+read -rp "Paste your Telegram user ID: " USER_ID < /dev/tty
 echo ""
 
 echo "3. What's your name? (used to personalize the assistant)"
-read -rp "Your first name: " USER_NAME
+read -rp "Your first name: " USER_NAME < /dev/tty
 echo ""
 
 echo "4. What do you want to call your assistant? (e.g. Jarvis, Max, Claude)"
-read -rp "Assistant name [default: Jarvis]: " BOT_NAME
+read -rp "Assistant name [default: Jarvis]: " BOT_NAME < /dev/tty
 BOT_NAME="${BOT_NAME:-Jarvis}"
 echo ""
 
@@ -71,7 +71,7 @@ echo "  3. Bot Settings → Group Privacy → Turn off"
 echo ""
 echo "Skip this if you only need DMs."
 echo ""
-read -rp "Press Enter to continue..."
+read -rp "Press Enter to continue..." < /dev/tty
 echo ""
 
 # ── Step 5: Write config ───────────────────────────────────────────────────
@@ -152,7 +152,7 @@ echo "================================================"
 echo ""
 echo "A browser will open — log in with your Claude/Anthropic account."
 echo ""
-read -rp "Press Enter to continue..."
+read -rp "Press Enter to continue..." < /dev/tty
 openclaw models auth login --provider anthropic --method cli --set-default
 echo ""
 
@@ -178,8 +178,7 @@ echo ""
 echo "$BOT_NAME can connect to Notion, GitHub, Vercel, and more."
 echo "You can set these up now or later by editing ~/.openclaw/openclaw.json"
 echo ""
-read -rp "Set up integrations now? (y/n): " SETUP_SKILLS
-
+read -rp "Set up integrations now? (y/n): " SETUP_SKILLS < /dev/tty
 if [[ "$SETUP_SKILLS" == "y" || "$SETUP_SKILLS" == "Y" ]]; then
 
   # Notion
@@ -189,7 +188,7 @@ if [[ "$SETUP_SKILLS" == "y" || "$SETUP_SKILLS" == "Y" ]]; then
   echo "  2. New connection → name it, Access token, select workspace → Create"
   echo "  3. Reveal and copy the token (starts with ntn_)"
   echo ""
-  read -rp "Notion token (or Enter to skip): " NOTION_TOKEN
+  read -rp "Notion token (or Enter to skip): " NOTION_TOKEN < /dev/tty
   if [[ -n "$NOTION_TOKEN" ]]; then
     python3 - << PYEOF
 import json, os
@@ -214,7 +213,7 @@ PYEOF
     echo "  Found existing token in macOS Keychain."
   else
     echo "  Generate a token at: github.com/settings/tokens"
-    read -rp "GitHub token (or Enter to skip): " GH_TOKEN
+    read -rp "GitHub token (or Enter to skip): " GH_TOKEN < /dev/tty
   fi
   if [[ -n "$GH_TOKEN" ]]; then
     python3 - << PYEOF
@@ -235,9 +234,9 @@ PYEOF
   echo ""
   echo "--- Vercel ---"
   echo "  Get your token at: vercel.com/account/tokens"
-  read -rp "Vercel token (or Enter to skip): " VERCEL_TOKEN
+  read -rp "Vercel token (or Enter to skip): " VERCEL_TOKEN < /dev/tty
   if [[ -n "$VERCEL_TOKEN" ]]; then
-    read -rp "Vercel Team ID (e.g. team_xxxx, or Enter to skip): " VERCEL_TEAM_ID
+    read -rp "Vercel Team ID (e.g. team_xxxx, or Enter to skip): " VERCEL_TEAM_ID < /dev/tty
     python3 - << PYEOF
 import json, os
 path = os.path.expanduser('~/.openclaw/openclaw.json')
