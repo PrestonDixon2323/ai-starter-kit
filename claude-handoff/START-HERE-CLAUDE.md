@@ -39,8 +39,14 @@ Copy all three into `~/.claude/commands/` (create the folder if needed).
 
 Open `TIPS.md` and go through it with the user, section by section, checking which habits they already have. This file is the highest value part of the kit. Offer to answer questions about any of it.
 
-## Step 5: Optional, reduce permission prompts
+## Step 5: Reduce permission prompts
 
-If the user finds themselves approving the same safe, read only actions over and over, offer to add those to the `permissions.allow` list in `~/.claude/settings.json`. Only add things the user actually uses and that cannot modify or delete anything. Explain what each entry allows before adding it.
+New users end up clicking approve constantly, which gets old fast. Three things to set up and teach here:
+
+- `settings-example.json` includes a starter `permissions.allow` list of safe, read only actions (listing files, checking git history, web search). Merge that list into `~/.claude/settings.json` and explain to the user what each entry lets Claude do without asking.
+- Teach the habit: when a permission prompt offers an option to allow and not ask again, choosing it saves that approval permanently to a settings file, so it applies to future sessions too, not just the current one. Encourage the user to pick that option for safe, routine actions they find themselves approving repeatedly.
+- After the user has worked with Claude for a while, they can ask Claude to scan for the actions they approve most often and add the safe ones to the allow list in bulk (Claude Code has a built in helper for this).
+
+Draw the line clearly: keep prompts ON for anything that writes, deletes, installs, or sends. Those prompts are the guardrail that matters.
 
 When all steps are done, suggest the user start a fresh session so everything is picked up cleanly, and have them try `/qa` and `/teach` on their next task.

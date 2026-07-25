@@ -1,10 +1,19 @@
 {
-  "_comment": "Example ~/.claude/settings.json. If you already have one, merge these keys in rather than replacing the file. The permissions.allow list is optional: it pre-approves safe, read-only actions so Claude stops asking about them. Only add entries you understand.",
+  "_comment": "Example ~/.claude/settings.json. If you already have one, merge these keys in rather than replacing the file. The permissions.allow list pre-approves actions so Claude stops asking permission for them every time. The starter entries below are read-only and safe: they let Claude look at things (list files, check git history, search the web) but not change anything. Add more over time, but keep anything that writes, deletes, or sends OFF this list.",
   "statusLine": {
     "type": "command",
     "command": "~/.claude/statusline.sh"
   },
   "permissions": {
-    "allow": []
+    "allow": [
+      "Bash(ls:*)",
+      "Bash(git status)",
+      "Bash(git log:*)",
+      "Bash(git diff:*)",
+      "Bash(git show:*)",
+      "Bash(grep:*)",
+      "Bash(which:*)",
+      "WebSearch"
+    ]
   }
 }
