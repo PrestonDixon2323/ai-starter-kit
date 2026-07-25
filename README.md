@@ -116,6 +116,16 @@ launchctl kickstart -k gui/$(id -u)/ai.openclaw.gateway
 
 ---
 
+## Level two — get more out of Claude
+
+Already set up and want Claude to run faster, cheaper, and smarter day to day? There's a second kit in this repo: **[claude-handoff/](claude-handoff/)**. It has a status line, a starter CLAUDE.md, custom slash commands, and the usage habits that matter most. Claude installs it for you — just start `claude` inside this repo and paste:
+
+```
+Read claude-handoff/START-HERE-CLAUDE.md and follow it. Set me up one step at a time.
+```
+
+---
+
 ## Maintenance
 
 - **Bot stops responding** (the AI login expires now and then):

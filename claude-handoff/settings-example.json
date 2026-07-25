@@ -1,0 +1,10 @@
+{
+  "_comment": "Example ~/.claude/settings.json. If you already have one, merge these keys in rather than replacing the file. The permissions.allow list is optional: it pre-approves safe, read-only actions so Claude stops asking about them. Only add entries you understand.",
+  "statusLine": {
+    "type": "command",
+    "command": "~/.claude/statusline.sh"
+  },
+  "permissions": {
+    "allow": []
+  }
+}
